@@ -27,13 +27,14 @@
   }
 
   #foto {
-    max-width: 400px;
+    max-width: 450px;   /* ficou maior */
     width: 100%;
     height: auto;
-    border-radius: 15px;
-    object-fit: cover;
+    border-radius: 0;   /* borda quadrada */
+    object-fit: contain; /* mostra a imagem toda, sem cortar */
     box-shadow: 0 4px 15px rgba(217, 111, 169, 0.6);
     margin-bottom: 30px;
+    background-color: #fff; /* para dar contraste, opcional */
   }
 
   .contador {
@@ -59,8 +60,7 @@
 </div>
 
 <script>
-  // Data do início do namoro: 17/08/2024 às 19:30
-  const dataInicio = new Date(2024, 7, 17, 19, 30, 0); // Mês 7 = agosto (0-indexado)
+  const dataInicio = new Date(2024, 7, 17, 19, 30, 0);
 
   function atualizarContador() {
     const agora = new Date();
