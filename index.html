@@ -30,23 +30,12 @@
     max-width: 450px;
     width: 100%;
     height: auto;
-    
-    /* Zerar qualquer arredondamento */
-    border-radius: 0 !important;
-    -webkit-border-radius: 0 !important;
-    -moz-border-radius: 0 !important;
-    -ms-border-radius: 0 !important;
-    -o-border-radius: 0 !important;
-
-    /* Garantir que a imagem não seja cortada */
+    border-radius: 0 !important;  /* Borda quadrada, sem arredondar */
     object-fit: contain;
-
-    /* Borda quadrada visível */
-    border: 5px solid #d96fa9;
-
     box-shadow: 0 4px 15px rgba(217, 111, 169, 0.6);
     margin-bottom: 30px;
     background-color: #fff;
+    border: 5px solid #d96fa9; /* Borda visível e combinando com as cores */
   }
 
   .contador {
