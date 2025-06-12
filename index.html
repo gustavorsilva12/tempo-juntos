@@ -7,8 +7,8 @@
 <style>
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #ffd6e8, #ffe1f0, #f6e3f7);
-    color: #4a2c58;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff7eb3);
+    color: #fff;
     margin: 0;
     padding: 20px;
     text-align: center;
@@ -17,34 +17,38 @@
   h1 {
     font-size: 3em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 5px #d96fa9;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-top: 0;
     margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 
   #foto {
     max-width: 450px;
     width: 100%;
     height: auto;
-    border-radius: 0 !important;  /* Borda quadrada, sem arredondar */
+    border-radius: 0 !important;  /* Borda quadrada */
     object-fit: contain;
-    box-shadow: 0 4px 15px rgba(217, 111, 169, 0.6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     margin-bottom: 30px;
     background-color: #fff;
-    border: 5px solid #d96fa9; /* Borda visível e combinando com as cores */
+    border: 5px solid #fff; /* Borda branca pra destacar no fundo colorido */
   }
 
   .contador {
-    background: #d96fa9;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.8);
+    color: #ff4d88;
     border-radius: 15px;
     padding: 20px 40px;
     font-size: 1.6em;
-    box-shadow: 0 4px 12px rgba(217, 111, 169, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     display: inline-block;
   }
 </style>
