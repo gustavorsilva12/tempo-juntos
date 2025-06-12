@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -48,21 +47,29 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
   }
 
-  #foto {
-    width: 250px;
-    height: 250px;
-    border-radius: 0; /* Borda quadrada */
-    object-fit: cover;
+  .moldura {
+    display: inline-block;
+    padding: 5px;
     border: 5px solid #fff;
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
     transition: transform 0.3s ease;
     cursor: pointer;
     margin-bottom: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
   }
 
-  #foto:hover {
+  .moldura:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+  }
+
+  #foto {
+    display: block;
+    max-width: 300px; /* 🔥 Definimos o tamanho máximo da imagem */
+    width: 100%; /* 🔥 Garante que a imagem se adapte em telas menores */
+    height: auto; /* 🔥 Mantém a proporção correta */
+    border-radius: 5px;
   }
 
   footer {
@@ -71,7 +78,6 @@
     color: rgba(255 255 255 / 0.7);
   }
 
-  /* Responsividade */
   @media (max-width: 600px) {
     #contador {
       font-size: 3rem;
@@ -87,9 +93,13 @@
       max-width: 90vw;
     }
 
+    .moldura {
+      padding: 3px;
+      border-width: 3px;
+    }
+
     #foto {
-      width: 180px;
-      height: 180px;
+      max-width: 90vw; /* 🔥 Deixa a imagem responsiva no celular */
     }
   }
 </style>
@@ -98,7 +108,9 @@
 
 <h1>Tempo Juntos</h1>
 
-<img id="foto" src="ffoto.jpeg" alt="Foto do casal" />
+<div class="moldura">
+  <img id="foto" src="ffoto.jpeg" alt="Foto do casal" />
+</div>
   
 <div id="contador">00d 00h 00m 00s</div>
 
