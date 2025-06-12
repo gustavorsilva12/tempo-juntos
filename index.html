@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo & Gabrielle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .contador {
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .frase {
+            font-size: 20px;
+            color: #555;
+            margin-top: 30px;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gustavo & Gabrielle</h1>
+    <img src="0D579ACF-1729-41A6-8EAC-54DBDD3407BF.jpeg" alt="Foto de Gustavo e Gabrielle">
+
+    <div class="contador" id="contador"></div>
+
+    <div class="frase">
+        “Não existem distâncias que nos deixe longe um do outro, esse relógio só aumenta e por mim ele nunca vai parar, assim como meu amor por você.”
+    </div>
+
+    <script>
+        function atualizarContador() {
+            const dataInicio = new Date('2024-08-17T19:30:00');
+            const agora = new Date();
+
+            let diferenca = agora - dataInicio;
+
+            const segundosTotais = Math.floor(diferenca / 1000);
+            const segundos = segundosTotais % 60;
+
+            const minutosTotais = Math.floor(segundosTotais / 60);
+            const minutos = minutosTotais % 60;
+
+            const horasTotais = Math.floor(minutosTotais / 60);
+            const horas = horasTotais % 24;
+
+            const diasTotais = Math.floor(horasTotais / 24);
+
+            let anos = Math.floor(diasTotais / 365);
+            let meses = Math.floor((diasTotais % 365) / 30);
+            let dias = diasTotais - (anos * 365) - (meses * 30);
+
+            document.getElementById('contador').innerHTML = 
+                `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos.`;
+        }
+
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
+    </script>
+
+</body>
+</html>
