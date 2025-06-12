@@ -1,78 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gustavo & Gabrielle</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f9f9f9;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .contador {
-            font-size: 24px;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-        img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .frase {
-            font-size: 20px;
-            color: #555;
-            margin-top: 30px;
-            padding: 0 10px;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tempo Juntos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF6B6B, #FFD93D, #6BCB77);
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 0.2rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  }
+
+  #contador {
+    font-size: 4rem;
+    font-weight: 700;
+    background: rgba(255 255 255 / 0.25);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    margin: 1rem 0 2rem 0;
+    letter-spacing: 0.1em;
+  }
+
+  #frase {
+    font-size: 1.5rem;
+    font-style: italic;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  }
+
+  #fotos {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  #fotos img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  #fotos img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  }
+
+  footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: rgba(255 255 255 / 0.7);
+  }
+
+  /* Responsividade */
+  @media (max-width: 600px) {
+    #contador {
+      font-size: 3rem;
+      padding: 0.8rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    #frase {
+      font-size: 1.2rem;
+      max-width: 90vw;
+    }
+
+    #fotos img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <h1>Gustavo & Gabrielle</h1>
-    <img src="0D579ACF-1729-41A6-8EAC-54DBDD3407BF.jpg" alt="Foto de Gustavo e Gabrielle">
+<h1>Tempo Juntos</h1>
 
-    <div class="contador" id="contador"></div>
+<div id="contador">00d 00h 00m 00s</div>
 
-    <div class="frase">
-        “Não existem distâncias que nos deixe longe um do outro, esse relógio só aumenta e por mim ele nunca vai parar, assim como meu amor por você.”
-    </div>
+<div id="frase">"Não existem distâncias que nos deixe longe um do outro, esse relógio só aumenta e por mim ele nunca vai parar, assim como meu amor por você."</div>
 
-    <script>
-        function atualizarContador() {
-            const dataInicio = new Date('2024-08-17T19:30:00');
-            const agora = new Date();
+<div id="fotos">
+  <!-- Depois me envia as fotos para eu ajustar, por enquanto tem um placeholder -->
+  <img src="https://via.placeholder.com/140?text=Gustavo" alt="Foto Gustavo" />
+  <img src="https://via.placeholder.com/140?text=Gabrielle" alt="Foto Gabrielle" />
+</div>
 
-            let diferenca = agora - dataInicio;
+<footer>Feito com ❤️ por Gustavo</footer>
 
-            const segundosTotais = Math.floor(diferenca / 1000);
-            const segundos = segundosTotais % 60;
+<script>
+  // Data de início do relacionamento: 17/08/2024 19:30
+  const inicio = new Date('2024-08-17T19:30:00');
 
-            const minutosTotais = Math.floor(segundosTotais / 60);
-            const minutos = minutosTotais % 60;
+  const contador = document.getElementById('contador');
 
-            const horasTotais = Math.floor(minutosTotais / 60);
-            const horas = horasTotais % 24;
+  function atualizarContador() {
+    const agora = new Date();
+    let diff = Math.floor((agora - inicio) / 1000); // diferença em segundos
 
-            const diasTotais = Math.floor(horasTotais / 24);
+    const dias = Math.floor(diff / (3600 * 24));
+    diff -= dias * 3600 * 24;
 
-            let anos = Math.floor(diasTotais / 365);
-            let meses = Math.floor((diasTotais % 365) / 30);
-            let dias = diasTotais - (anos * 365) - (meses * 30);
+    const horas = Math.floor(diff / 3600);
+    diff -= horas * 3600;
 
-            document.getElementById('contador').innerHTML = 
-                `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos.`;
-        }
+    const minutos = Math.floor(diff / 60);
+    const segundos = diff % 60;
 
-        atualizarContador();
-        setInterval(atualizarContador, 1000);
-    </script>
+    contador.textContent = `${String(dias).padStart(2,'0')}d ${String(horas).padStart(2,'0')}h ${String(minutos).padStart(2,'0')}m ${String(segundos).padStart(2,'0')}s`;
+  }
+
+  atualizarContador();
+  setInterval(atualizarContador, 1000);
+</script>
 
 </body>
 </html>
