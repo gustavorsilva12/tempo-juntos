@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tempo Juntos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
 
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF6B6B, #FFD93D, #6BCB77);
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 0.2rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  }
+
+  #contador {
+    font-size: 4rem;
+    font-weight: 700;
+    background: rgba(255 255 255 / 0.25);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    margin: 1rem 0 2rem 0;
+    letter-spacing: 0.1em;
+  }
+
+  #frase {
+    font-size: 1.5rem;
+    font-style: italic;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  }
+
+  .moldura {
+    display: inline-block;
+    padding: 5px;
+    border: 5px solid #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+
+  .moldura:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+  }
+
+  #foto {
+    display: block;
+    max-width: 300px; /* 🔥 Definimos o tamanho máximo da imagem */
+    width: 100%; /* 🔥 Garante que a imagem se adapte em telas menores */
+    height: auto; /* 🔥 Mantém a proporção correta */
+    border-radius: 5px;
+  }
+
+  footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: rgba(255 255 255 / 0.7);
+  }
+
+  @media (max-width: 600px) {
+    #contador {
+      font-size: 3rem;
+      padding: 0.8rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    #frase {
+      font-size: 1.2rem;
+      max-width: 90vw;
+    }
+
+    .moldura {
+      padding: 3px;
+      border-width: 3px;
+    }
+
+    #foto {
+      max-width: 90vw; /* 🔥 Deixa a imagem responsiva no celular */
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Tempo Juntos</h1>
+
+<div class="moldura">
+  <img src="foto.jpeg" alt="Foto de Gustavo e Gabrielle" width="200">
+</div>
+  
+<div id="contador">00d 00h 00m 00s</div>
+
+<div id="frase">"Não existem distâncias que nos deixe longe um do outro, esse relógio só aumenta e por mim ele nunca vai parar, assim como meu amor por você."</div>
+
+<footer>Feito com ❤️ por Gustavo</footer>
+
+<script>
+  // Data de início do relacionamento: 17/08/2024 19:30
+  const inicio = new Date('2024-08-17T19:30:00');
+
+  const contador = document.getElementById('contador');
+
+  function atualizarContador() {
+    const agora = new Date();
+    let diff = Math.floor((agora - inicio) / 1000); // diferença em segundos
+
+    const dias = Math.floor(diff / (3600 * 24));
+    diff -= dias * 3600 * 24;
+
+    const horas = Math.floor(diff / 3600);
+    diff -= horas * 3600;
+
+    const minutos = Math.floor(diff / 60);
+    const segundos = diff % 60;
+
+    contador.textContent = `${String(dias).padStart(2,'0')}d ${String(horas).padStart(2,'0')}h ${String(minutos).padStart(2,'0')}m ${String(segundos).padStart(2,'0')}s`;
+  }
+
+  atualizarContador();
+  setInterval(atualizarContador, 1000);
+</script>
+
+</body>
+</html>
