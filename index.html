@@ -66,9 +66,9 @@
 
   #foto {
     display: block;
-    max-width: 300px; /* 🔥 Definimos o tamanho máximo da imagem */
-    width: 100%; /* 🔥 Garante que a imagem se adapte em telas menores */
-    height: auto; /* 🔥 Mantém a proporção correta */
+    max-width: 300px;
+    width: 100%;
+    height: auto;
     border-radius: 5px;
   }
 
@@ -99,7 +99,7 @@
     }
 
     #foto {
-      max-width: 90vw; /* 🔥 Deixa a imagem responsiva no celular */
+      max-width: 90vw;
     }
   }
 </style>
@@ -112,7 +112,7 @@
   <img src="foto.jpeg" alt="Foto de Gustavo e Gabrielle" width="200">
 </div>
   
-<div id="contador">00d 00h 00m 00s</div>
+<div id="contador">00 dias 00 horas 00 minutos 00 segundos</div>
 
 <div id="frase">"Não existem distâncias que nos deixe longe um do outro, esse relógio só aumenta e por mim ele nunca vai parar, assim como meu amor por você."</div>
 
@@ -137,7 +137,7 @@
     const minutos = Math.floor(diff / 60);
     const segundos = diff % 60;
 
-    contador.textContent = `${String(dias).padStart(2,'0')}d ${String(horas).padStart(2,'0')}h ${String(minutos).padStart(2,'0')}m ${String(segundos).padStart(2,'0')}s`;
+    contador.textContent = `${String(dias).padStart(2,'0')} dias ${String(horas).padStart(2,'0')} horas ${String(minutos).padStart(2,'0')} minutos ${String(segundos).padStart(2,'0')} segundos`;
   }
 
   atualizarContador();
